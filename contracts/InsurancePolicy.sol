@@ -233,7 +233,6 @@ contract InsurancePolicy{
 
     function payPremium(uint256 _policyId) activePolicy(_policyId) payable public{
         InsuranceStorage.Policy memory policy = policyStorage.getPolicy(_policyId);
-        require(msg.sender != address(0), "ZeroAddress");
         require(policy.policyHolder == msg.sender, "NotPolicyHolder");
         require(msg.value > 0, "zero value");
         require(
