@@ -1,13 +1,57 @@
-# Sample Hardhat Project
+# Decentralized Insurance Policy Smart Contract
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+A decentralized insurance policy management system that enables transparent policy creation, premium payments, claim processing, and approval logic.
 
-Try running some of the following tasks:
+The system removes intermediaries and ensures transparent claim verification.
 
-```shell
-npx hardhat help
+## Architecture
+
+Roles:
+- Admin
+- Policy Holder
+- Verifier(insurer)
+
+## Features
+
+### Policy Creation
+- insurer creates insurance policies
+- Defines coverage, duration, premium
+
+### Premium Payment Tracking
+- Records payment history
+- Ensures active policy validation
+
+### Claim Submission
+- Policy holder submits claim
+- isApproved and isReceived to track status
+
+### Claim Verification
+- Only authorized verifier can approve
+- Prevents duplicate claims
+
+### Event Emission
+- PolicyCreated
+- ClaimSubmitted
+- ClaimApproved
+
+## 🧪 Testing
+
+Includes:
+- Policy lifecycle testing
+- Claim submission edge cases
+- Unauthorized access attempts
+- Event emission validation
+- Revert testing
+
+## Tech Stack
+
+- Solidity
+- Hardhat
+- Ethers.js
+- Chai
+
+## Run Locally
+
+npm install
+npx hardhat compile
 npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.js
-```
